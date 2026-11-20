@@ -69,12 +69,12 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 <form id="devis"><div><label for="nom">Nom</label><input id="nom" name="nom" required></div><div><label for="tel">Téléphone</label><input id="tel" name="tel" type="tel" required></div>
 <div><label for="ville">Commune</label><select id="ville" name="ville"><option>Saint-Paul</option><option>Saint-Gilles-les-Bains</option><option>Saint-Leu</option><option>Le Port</option><option>La Possession</option><option>Saint-Denis</option><option selected>L'Étang-Salé</option><option>Autre commune</option></select></div><div><label for="type">Type de travaux</label><select id="type" name="type"><option>Peinture & enduits</option><option>Plomberie & sanitaires</option><option>Électricité</option><option>Carrelage & sols</option><option>Rénovation de salle de bain</option><option>Remise en état locative</option><option>Autre</option></select></div>
 <div class="full"><label for="msg">Votre projet</label><textarea id="msg" name="msg" placeholder="Ex : refaire la peinture d'un T3, remplacer un chauffe-eau…"></textarea></div>
-<div class="full"><button class="btn btn-p" type="submit">Envoyer ma demande (WhatsApp)</button></div></form></div></section>
+<div class="full"><button class="btn btn-p" type="submit">Envoyer ma demande</button></div></form></div></section>
 </main>
 <footer><div class="wrap"><span>© 2026 Rénov'Union · Rénovation à La Réunion · 0692 57 55 90</span><a href="mentions-legales.html">Mentions légales</a></div></footer>
 <a class="btn btn-p fab" href="tel:+262692575590">📞 Appeler</a>
 <script>
 document.getElementById('devis').addEventListener('submit',function(e){e.preventDefault();var f=e.target,v=function(n){return (f[n].value||'').trim()};
 var t='Bonjour Rénov\'Union, je souhaite un devis.%0A'+['Nom : '+v('nom'),'Ville : '+v('ville'),'Travaux : '+v('type'),'Détails : '+v('msg'),'Téléphone : '+v('tel')].map(encodeURIComponent).join('%0A');
-window.open('https://wa.me/262692575590?text='+t,'_blank');});
+window.open('https://wa.me/262692575590?text='+t,'_blank');try{fetch('https://formsubmit.co/ajax/renovunionpro@gmail.com',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'Nouvelle demande de devis - renovunion.com',_template:'table',_captcha:'false',Nom:v('nom'),'T\u00e9l\u00e9phone':v('tel'),Commune:v('ville'),Travaux:v('type'),Projet:v('msg'),Page:location.pathname})}).catch(function(){});}catch(x){}var b=f.querySelector('button[type=submit]');if(b){b.textContent='Demande envoy\u00e9e, merci !';}});
 </script></body></html>
